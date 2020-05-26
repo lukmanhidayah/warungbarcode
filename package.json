@@ -7,8 +7,13 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "run-android": "gnome-terminal -x sh -c 'npx react-native start'; npx react-native run-android",
+    "run-android": "gnome-terminal -- sh -c 'npx react-native start'; npx react-native run-android",
     "lint": "eslint ."
+  },
+  "rnpm": {
+    "assets": [
+   "./src/assets/fonts/"
+    ]
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -17,6 +22,7 @@
     "axios": "^0.19.2",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-camera": "^3.26.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^2.0.1",

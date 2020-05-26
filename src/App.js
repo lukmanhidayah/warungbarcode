@@ -12,26 +12,32 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color }) => {
             let iconName;
-
+            let type = "AntDesign";
+            let size = 24;
             if (route.name === 'Beranda') {
-              iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline';
+              iconName = focused ? 'home' : 'home';
+              type = focused ? 'MaterialIcons' : 'AntDesign';
+              size = focused ? 28 : 24
             } else if (route.name === 'Transaksi') {
               iconName = focused ? 'ios-list-box' : 'ios-list';
+              type = 'Ionicons'
             }
 
             // You can return any component that you like here!
-            return <Icon type="Ionicons" name={iconName} size={size} color={color} />;
+            return <Icon type={type} name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
+          activeTintColor: '#36a970',
           inactiveTintColor: 'gray',
+          labelStyle:{
+            fontFamily:'SourceSansPro-SemiBold'
+          }
         }}
+
       >
         <Tab.Screen name="Beranda" component={Beranda} />
         <Tab.Screen name="Transaksi" component={Transaksi} />
