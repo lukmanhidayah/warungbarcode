@@ -76,7 +76,8 @@ export default function App() {
         }} />
         <Stack.Screen name="Produk" component={Produk}
           options={{
-            cardStyleInterpolator : CardStyleInterpolators.forModalPresentationIOS
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS
           }}
         />
       </Stack.Navigator>
