@@ -69,14 +69,16 @@ export default function App() {
 
     >
       <Stack.Navigator
-       screenOptions ={{
-         cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS
-       }}
+
       >
         <Stack.Screen name="Home" component={Home} options={{
           headerShown: false,
         }} />
-        <Stack.Screen name="Produk" component={Produk}/>
+        <Stack.Screen name="Produk" component={Produk}
+          options={{
+            cardStyleInterpolator : CardStyleInterpolators.forModalPresentationIOS
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

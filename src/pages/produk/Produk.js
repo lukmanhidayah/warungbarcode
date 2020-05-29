@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, SafeAreaView, Animated, TextInput, Button, TouchableOpacity } from 'react-native';
+import { View, Text, SafeAreaView, Animated, TextInput, Button, TouchableOpacity, FlatList } from 'react-native';
 import IconToogle from '../../components/commons/IconToogle';
 import Icon from '../../components/icon/Icon';
-
+import Axios from 'axios';
+import { API_TOKEN, API_URL } from '../../components/externalURL/externalURL';
 
 class produk extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         dataProduk: [],
+         page: 1
       };
       this.navigation = this.props.navigation;
 
@@ -17,6 +20,20 @@ class produk extends Component {
       });
    }
 
+   componentDidMount() {
+      this._getDataProduk()
+   }
+
+   _getDataProduk = () => {
+      Axios.get(API_URL + 'produk?page=' + this.state.page)
+         .then(res => {
+            console.log(res.data)
+         })
+         .catch(err => {
+
+         })
+
+   }
 
 
 
@@ -57,6 +74,9 @@ class produk extends Component {
                   </View>
 
                </View>
+               <FlatList
+                  data={this.state.dataProduk}
+               />
             </View>
          </SafeAreaView>
       );
